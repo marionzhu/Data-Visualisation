@@ -1,0 +1,45 @@
+DAX measures to create :
+
+Total Revenue = SUM(Sales[Revenue])
+--
+Number of Sales = COUNTROWS(Sales)
+--
+Total Quantity = SUM(Sales[Quantity])
+--
+Total Cost = SUM(Sales[Cost])
+--
+Average Revenue = AVERAGE(Sales[Revenue])
+--
+Highest Revenue = MAX(Sales[Revenue])
+--
+Total Profit = [Total Revenue] – [Total Cost]
+--
+USA Total Revenue = 
+CALCULATE(
+    SUM(Sales[Revenue]),
+    Location[Country] = "USA"
+)
+--
+World Total Revenue = 
+CALCULATE(
+    SUM(Sales[Revenue]),
+    ALL(Location[Country])
+)
+--
+USA Market Share =  [USA Total Revenue] / [World Total Revenue]
+--
+Total Revenue LY = 
+CALCULATE(
+    [Total Revenue],
+    SAMEPERIODLASTYEAR('Calendar'[Date])
+)
+--
+Revenue YoY Growth = [Total Revenue] - [Total Revenue LY]
+--
+Revenue YoY Growth % =  [Revenue YoY Growth] / [Total Revenue LY]
+--
+Total Revenue YTD = 
+CALCULATE(
+    [Total Revenue],
+    DATESYTD('Calendar'[Date])
+)

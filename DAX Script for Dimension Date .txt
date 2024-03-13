@@ -1,0 +1,14 @@
+DAX Script for Dimension Date :
+
+Calendar = 
+ADDCOLUMNS (
+        CALENDARAUTO(),
+        "Year", YEAR([Date]),
+        "Month N°", MONTH([Date]),
+        "Month", FORMAT([Date], "MMMM", "en-us"),
+        "Month & Year", FORMAT([Date], "MMMM YYYY", "en-us"), 
+        "Month & Year (Sort)", FORMAT([Date], "YYYYMM"),
+        "Week N°", WEEKNUM([Date]),
+        "Week Day", FORMAT([Date], "DDDD", "en-us"),
+        "Week Day (Sort)", WEEKDAY([Date])
+    )
